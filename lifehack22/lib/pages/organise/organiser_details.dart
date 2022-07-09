@@ -2,7 +2,12 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:lifehack22/models/event.dart';
+import 'package:lifehack22/services/user_database.dart';
 import 'package:lifehack22/shared/constants.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:csv/csv.dart';
+import 'package:external_path/external_path.dart';
+import 'dart:io';
 
 class OrganiserDetails extends StatefulWidget {
   final Event event;
@@ -30,6 +35,39 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
     dynamic j = widget.event.participantsList.length;
     return i - j + 1;
   }
+
+  void _generateCsvFile() async {
+
+    List<dynamic> data = await DatabaseService(uid: widget.uid).listOfMaps(widget.event.participantsList);
+
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.storage,
+    ].request();
+
+    List<List<dynamic>> rows = [];
+
+    for (int i = 0; i < data.length; i++) {
+      List<dynamic> row = [];
+      row.add(data[i]["name"]);
+      row.add(data[i]["phone"]);
+      row.add(data[i]["email"]);
+      rows.add(row);
+    }
+
+    String csv = const ListToCsvConverter().convert(rows);
+
+    String path;
+
+    path = await ExternalPath.getExternalStoragePublicDirectory(
+        ExternalPath.DIRECTORY_DOWNLOADS);
+
+    String file = path;
+
+    File f = File("$file/filename.csv");
+
+    f.writeAsString(csv);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -197,9 +235,7 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                       decoration: largeRadiusRoundedBox1,
                       padding: const EdgeInsets.all(5.0),
                       child: TextButton(
-                        onPressed: () {
-
-                        },
+                        onPressed: _generateCsvFile,
                         child: Text(
                           'View Participants',
                           style: helveticaTextStyle.copyWith(fontSize: 24.0, fontWeight: FontWeight.bold),

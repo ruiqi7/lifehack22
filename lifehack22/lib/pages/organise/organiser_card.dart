@@ -19,9 +19,9 @@ class OrganiserCard extends StatefulWidget {
 
 class _OrganiserCardState extends State<OrganiserCard> {
   String currStatus() {
-    int i = widget.event.quota;
-    int j = widget.event.participantsList.length;
-    int subtraction = i - j - 1;
+    int i = event.quota;
+    int j = event.participantsList.length;
+    int subtraction = j - 1;
     return "$subtraction/$i";
   }
 

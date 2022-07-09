@@ -45,6 +45,10 @@ dependencies:
   dropdown_button2: ^1.5.2
   image_picker: ^0.8.5+3
   intl: ^0.17.0
+  csv: ^5.0.1
+  path_provider: ^2.0.2
+  permission_handler: ^7.1.0
+  external_path: ^1.0.1
 
 dev_dependencies:
   flutter_test:
