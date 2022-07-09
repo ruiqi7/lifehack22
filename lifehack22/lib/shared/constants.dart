@@ -2,6 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 const darkestPink = Color.fromRGBO(178, 0, 86, 1.0);
+const darkestPinkOpacity10 = Color.fromRGBO(178, 0, 86, 0.1);
+const navBarGrey = Color.fromRGBO(235, 235, 235, 1.0);
+const navBarObjGrey = Color.fromRGBO(115, 115, 115, 1.0);
+const transparent = Color.fromRGBO(255, 255, 255, 0);
+const lightPink = Color.fromRGBO(253, 207, 235, 1.0);
+
+const horizontalGapBox = SizedBox(height: 15);
+const verticalGapBox = SizedBox(width: 15);
 
 const TextStyle helveticaTextStyle = TextStyle(
   fontFamily: 'Helvetica',
@@ -15,12 +23,12 @@ const TextStyle formInputTextStyle = TextStyle(
   color: darkestPink,
 );
 
-const BoxDecoration smallRadiusRoundedBox = BoxDecoration(
+const BoxDecoration smallRadiusRoundedBox1 = BoxDecoration(
   borderRadius: BorderRadius.all(Radius.circular(10.0)),
   color: darkestPink,
 );
 
-const BoxDecoration largeRadiusRoundedBox = BoxDecoration(
+const BoxDecoration largeRadiusRoundedBox1 = BoxDecoration(
   borderRadius: BorderRadius.all(Radius.circular(30.0)),
   color: darkestPink,
 );
@@ -49,7 +57,7 @@ const InputDecoration formFieldDeco = InputDecoration(
 backButton(context) => Container(
   width: 100.0,
   height: 40.0,
-  decoration: largeRadiusRoundedBox,
+  decoration: largeRadiusRoundedBox1,
   child: TextButton(
     style: TextButton.styleFrom(
       padding: const EdgeInsets.all(5.0),
@@ -63,4 +71,14 @@ backButton(context) => Container(
       maxLines: 1
     ),
   ),
+
+const BoxDecoration smallRadiusRoundedBox = BoxDecoration(
+  borderRadius: BorderRadius.all(Radius.circular(10)),
+  color: darkestPinkOpacity10,
+);
+
+BoxDecoration largeRadiusRoundedBox = BoxDecoration(
+  borderRadius: const BorderRadius.all(Radius.circular(30)),
+  border: Border.all(color: darkestPink, width: 1.0),
+  color: lightPink,
 );
