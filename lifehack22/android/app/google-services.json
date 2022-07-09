@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "784277570442",
+    "project_id": "lifehack22-b99fe",
+    "storage_bucket": "lifehack22-b99fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784277570442:android:71401fcb5ee63464dcbe73",
+        "android_client_info": {
+          "package_name": "com.example.lifehack22"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784277570442-e5q645tqkpq0bndeslqtdhu4o71q61t9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAutB6Wuoty4JJ9gOOALWVD6A8WuNJv3Oc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784277570442-e5q645tqkpq0bndeslqtdhu4o71q61t9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
