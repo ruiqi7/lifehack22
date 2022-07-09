@@ -1,7 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lifehack22/shared/bar_widgets.dart';
 import 'package:lifehack22/shared/constants.dart';
+import 'package:lifehack22/shared/event_details.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 import '../../event.dart';
@@ -18,7 +20,7 @@ class Volunteer extends StatefulWidget {
 class _VolunteerState extends State<Volunteer> {
 
   final int _position = 2;
-  String uid = "";
+  final String uid = FirebaseAuth.instance.currentUser!.uid;
 
   @override
   Widget build(BuildContext context) {
@@ -48,18 +50,18 @@ class _VolunteerState extends State<Volunteer> {
             horizontalGapBox,
             horizontalGapBox,
             Expanded(
-                child: Column(
-                  children: <Widget> [
-                    StreamProvider<List<Event>>.value(
-                      value: EventDatabase().volunteeringEventsStream(),
-                      initialData: const [],
-                      child: Flexible(
-                          child: EventList(username: uid)
-                      ),
+              child: Column(
+                children: <Widget> [
+                  StreamProvider<List<Event>>.value(
+                    value: EventDatabase().volunteeringEventsStream(),
+                    initialData: const [],
+                    child: Flexible(
+                        child: EventList(username: uid)
                     ),
-                  ],
-                )
-            )
+                  ),
+                ],
+              )
+            ),
           ],
         ),
         bottomNavigationBar: Container(

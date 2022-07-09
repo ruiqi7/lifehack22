@@ -4,8 +4,8 @@ class Event {
   final String imageUrl;
   final String title;
   final dynamic dateTime;
-  final String location;
-  final int quota;
+  final String region;
+  final dynamic quota;
   final String activityType;
   final String community;
   final String details;
@@ -20,7 +20,7 @@ class Event {
     required this.imageUrl,
     required this.title,
     required this.dateTime,
-    required this.location,
+    required this.region,
     required this.quota,
     required this.activityType,
     required this.community,

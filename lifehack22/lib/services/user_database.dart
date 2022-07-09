@@ -73,4 +73,14 @@ class DatabaseService {
     return await FirebaseFirestore.instance.runTransaction((transaction) async =>
         transaction.delete(userDatabaseCollection.doc(uid)));
   }
+
+  Future<bool> isThereInfo() async {
+    DocumentSnapshot? snapshot;
+    DocumentReference doc = userDatabaseCollection.doc(uid);
+    await doc.get().then((value) => snapshot = value);
+
+    AppUser user = _userDataFromSnapshot(snapshot!);
+    return user.name.isNotEmpty && user.email.isNotEmpty && user.phone.isNotEmpty;
+  }
+
 }

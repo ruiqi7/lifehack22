@@ -21,8 +21,8 @@ class EventDatabase {
         imageUrl: doc.data().toString().contains('imageUrl') ? doc.get('imageUrl'): '',
         title: doc.data().toString().contains('title') ? doc.get('title'): '',
         dateTime: doc.data().toString().contains('dateTime') ? doc.get('dateTime'): '',
-        location: doc.data().toString().contains('location') ? doc.get('location'): '',
-        quota: doc.data().toString().contains('currNumPeople') ? doc.get('quota'): 0,
+        region: doc.data().toString().contains('region') ? doc.get('region'): '',
+        quota: doc.data().toString().contains('quota') ? doc.get('quota'): 0,
         activityType: doc.data().toString().contains('activityType') ? doc.get('activityType'): '',
         community: doc.data().toString().contains('community') ? doc.get('community'): '',
         details: doc.data().toString().contains('details') ? doc.get('details'): '',
@@ -49,7 +49,7 @@ class EventDatabase {
       imageUrl: data?['imageUrl'],
       title: data?['title'],
       dateTime: data?['dateTime'],
-      location: data?['location'],
+      region: data?['region'],
       quota: data?['quota'],
       activityType: data?['activityType'],
       community: data?['community'],
@@ -63,7 +63,7 @@ class EventDatabase {
   }
 
   Future createNewEvent(String eventId, String imageUrl, String title,
-      String dateTime, String location, int quota,
+      String dateTime, String region, int quota,
       String activityType, String community, String details, String contactName,
       String contactNumber, String contactEmail, dynamic participantsList, String organiserUid) async {
     return await eventDatabaseCollection.add({
@@ -71,7 +71,7 @@ class EventDatabase {
       'imageUrl': imageUrl,
       'title': title,
       'dateTime': dateTime,
-      'location': location,
+      'region': region,
       'quota': quota,
       'activityType': activityType,
       'community': community,
@@ -87,14 +87,14 @@ class EventDatabase {
   //get eventDatabase stream of upcoming events that user has registered for home page
   Stream<List<Event>> homeEventsStream(String uid) {
     return eventDatabaseCollection
-        .where('participantsList', arrayContains: [uid])
+        .where('participantsList', arrayContains: uid)
         .where('dateTime', isGreaterThanOrEqualTo: _now)
         .orderBy('dateTime')
         .snapshots()
         .map(eventListFromSnapshot);
   }
 
-  //get eventDatabase stream of upcoming events that user has registered for home page
+  //get eventDatabase stream of upcoming events for volunteering page
   Stream<List<Event>> volunteeringEventsStream() {
     return eventDatabaseCollection
         .where('dateTime', isGreaterThanOrEqualTo: _now)
@@ -103,6 +103,38 @@ class EventDatabase {
         .map(eventListFromSnapshot);
   }
 
+  //get eventDatabase stream of upcoming events for organising page
+  Stream<List<Event>> organisingEventsStream(String uid) {
+    return eventDatabaseCollection
+        .where('organiserUid', isEqualTo: uid)
+        .where('dateTime', isGreaterThanOrEqualTo: _now)
+        .orderBy('dateTime')
+        .snapshots()
+        .map(eventListFromSnapshot);
+  }
 
+  //get eventDatabase stream of upcoming events that user has registered for home page
+  Stream<List<Event>> pastEventsStream(String uid) {
+    return eventDatabaseCollection
+        .where('participantsList', arrayContains: uid)
+        .where('dateTime', isLessThanOrEqualTo: _now)
+        .orderBy('dateTime')
+        .snapshots()
+        .map(eventListFromSnapshot);
+  }
+
+  Future registerEvent(String uid, String eventId) async {
+    List<dynamic> list = [uid];
+    return await eventDatabaseCollection.doc(eventId).update({
+      'participantsList': FieldValue.arrayUnion(list),
+    });
+  }
+
+  Future unregisterEvent(String uid, String eventId) async {
+    List<dynamic> list = [uid];
+    return await eventDatabaseCollection.doc(eventId).update({
+      'participantsList': FieldValue.arrayRemove(list),
+    });
+  }
 
 }
