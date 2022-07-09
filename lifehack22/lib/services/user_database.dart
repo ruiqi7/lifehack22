@@ -11,10 +11,10 @@ class DatabaseService {
   final CollectionReference userDatabaseCollection = FirebaseFirestore.instance
       .collection('userDatabase');
 
-  Future createNewUser() async {
+  Future createNewUser(String email) async {
     return await userDatabaseCollection.doc(uid).set({
       'name': '',
-      'email': '',
+      'email': email,
       'phone': '',
     });
   }

@@ -23,7 +23,7 @@ class Authentication {
             .createUserWithEmailAndPassword(email: email, password: password);
 
       // create a new document for the user with the uid
-      await DatabaseService(uid: result.user!.uid).createNewUser();
+      await DatabaseService(uid: result.user!.uid).createNewUser(email);
       return '';
     } on FirebaseAuthException catch (authException) {
       String error = authException.code;

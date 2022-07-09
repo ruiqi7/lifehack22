@@ -62,12 +62,9 @@ class EventDatabase {
     );
   }
 
-  Future createNewEvent(String eventId, String imageUrl, String title,
-      String dateTime, String location, int quota,
-      String activityType, String community, String details, String contactName,
-      String contactNumber, String contactEmail, dynamic participantsList, String organiserUid) async {
+  Future createNewEvent(String imageUrl, String title, String dateTime, String location, int quota,
+      String activityType, String community, String details, String organiserUid) async {
     return await eventDatabaseCollection.add({
-      'eventId': eventId,
       'imageUrl': imageUrl,
       'title': title,
       'dateTime': dateTime,
@@ -76,9 +73,6 @@ class EventDatabase {
       'activityType': activityType,
       'community': community,
       'details': details,
-      'contactName': contactName,
-      'contactNumber': contactNumber,
-      'contactEmail': contactEmail,
       'organiserUid': organiserUid,
       'participantsList': [organiserUid],
     });

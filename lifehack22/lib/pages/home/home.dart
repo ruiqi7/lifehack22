@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:lifehack22/services/authentication.dart';
 import 'package:lifehack22/services/event_database.dart';
 import 'package:lifehack22/shared/bar_widgets.dart';
 import 'package:lifehack22/shared/constants.dart';
@@ -38,12 +39,17 @@ class _HomeState extends State<Home> {
                   children: <Widget> [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: const <Widget> [
-                        Icon(
-                          Icons.logout_outlined,
-                          color: Colors.white,
-                          size: 40,
-                        )
+                      children: <Widget> [
+                        TextButton(
+                          child: const Icon(
+                            Icons.logout_outlined,
+                            color: Colors.white,
+                            size: 40,
+                          ),
+                          onPressed: () async {
+                            await Authentication().customSignOut();
+                          },
+                        ),
                       ],
                     ),
                     Row(
