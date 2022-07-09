@@ -5,15 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd80e3ec-51a8-4dd1-9436-e882b5600b84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lifehack22/lib/pages/organise/new_event.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifehack22/lib/services/storage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/models/event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/models/event.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/home/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/menu/main_menu.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/menu/main_menu.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/menu/sign_in.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/menu/sign_in.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/menu/sign_up.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/menu/sign_up.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/organise/new_event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/organise/new_event.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organise.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organise.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifehack22/lib/services/authentication.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/services/authentication.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organiser_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organiser_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organiser_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organiser_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/profile/past_events.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/profile/past_events.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/profile/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/profile/profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/volunteering/volunteer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/volunteering/volunteer.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifehack22/lib/services/event_database.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/services/event_database.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifehack22/lib/services/user_database.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/services/user_database.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/shared/bar_widgets.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/shared/bar_widgets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/shared/event_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/shared/event_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/shared/event_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/shared/event_details.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifehack22/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifehack22/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/pubspec.yaml" afterDir="false" />
     </list>
@@ -88,5 +97,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
