@@ -1,8 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'constants.dart';
 import 'firebase_options.dart';
-
-const bgColour = Color.fromRGBO(0, 34, 75, 1.0);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,12 +34,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgColour,
+      backgroundColor: darkestPink,
       body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget> [
-              const Text('Study Wyth Me'),
+              const Text('Stand Together'),
               const SizedBox(height: 45),
               Container(
                 width: buttonWidth,
