@@ -14,7 +14,7 @@ class OrganiserCard extends StatelessWidget {
   String currStatus() {
     int i = event.quota;
     int j = event.participantsList.length;
-    int subtraction = i - j - 1;
+    int subtraction = j - 1;
     return "$subtraction/$i";
   }
 
