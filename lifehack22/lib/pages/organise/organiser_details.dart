@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:lifehack22/event.dart';
+import 'package:lifehack22/models/event.dart';
 import 'package:lifehack22/shared/constants.dart';
 
 class OrganiserDetails extends StatefulWidget {

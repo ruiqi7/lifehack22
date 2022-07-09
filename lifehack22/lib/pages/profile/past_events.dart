@@ -7,7 +7,7 @@ import 'package:lifehack22/shared/event_details.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-import '../../event.dart';
+import '../../models/event.dart';
 import '../../services/event_database.dart';
 import '../../shared/event_list.dart';
 

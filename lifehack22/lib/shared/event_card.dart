@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import '../event.dart';
+import '../models/event.dart';
 import 'constants.dart';
 import 'event_details.dart';
 

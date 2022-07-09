@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lifehack22/shared/event_card.dart';
 import 'package:provider/provider.dart';
 
-import '../event.dart';
+import '../models/event.dart';
 
 class EventList extends StatefulWidget {
 

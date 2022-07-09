@@ -7,7 +7,7 @@ import 'package:lifehack22/shared/bar_widgets.dart';
 import 'package:lifehack22/shared/constants.dart';
 import 'package:provider/provider.dart';
 
-import '../../event.dart';
+import '../../models/event.dart';
 import '../../shared/event_list.dart';
 
 

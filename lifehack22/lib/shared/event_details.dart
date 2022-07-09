@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:lifehack22/services/event_database.dart';
-import '../event.dart';
+import '../models/event.dart';
 import '../services/user_database.dart';
 import 'constants.dart';
 

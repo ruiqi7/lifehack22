@@ -167,7 +167,7 @@ class _NewEventState extends State<NewEvent> {
                   buttonHeight: 27.0,
                   dropdownDecoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    color: darkestPinkOpacity10,
+                    color: Colors.white,
                   ),
                   dropdownElevation: 0,
                   dropdownMaxHeight: 180.0,
@@ -213,7 +213,7 @@ class _NewEventState extends State<NewEvent> {
                   buttonHeight: 27.0,
                   dropdownDecoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    color: darkestPinkOpacity10,
+                    color: Colors.white,
                   ),
                   dropdownElevation: 0,
                   dropdownMaxHeight: 220.0,
@@ -259,7 +259,7 @@ class _NewEventState extends State<NewEvent> {
                   buttonHeight: 27.0,
                   dropdownDecoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    color: darkestPinkOpacity10,
+                    color: Colors.white,
                   ),
                   dropdownElevation: 0,
                   dropdownMaxHeight: 220.0,
@@ -365,6 +365,8 @@ class _NewEventState extends State<NewEvent> {
                             newURL, _title, _dateTime.toString(), _region!,
                             _quota, _type!, _community!, _description, uid
                         );
+                        if (!mounted) return;
+                        Navigator.pop(context);
                       }
                     },
                   ),

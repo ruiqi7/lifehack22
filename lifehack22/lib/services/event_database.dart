@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:lifehack22/event.dart';
+import 'package:lifehack22/models/event.dart';
 
 class EventDatabase {
 
