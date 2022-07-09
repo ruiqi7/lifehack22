@@ -1,6 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import 'shared/constants.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -39,7 +40,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget> [
-              const Text('Stand Together'),
+              AutoSizeText('Stand Together', style: helveticaTextStyle.copyWith(fontSize: 55, fontWeight: FontWeight.bold), maxLines: 2),
               const SizedBox(height: 45),
               Container(
                 width: buttonWidth,
