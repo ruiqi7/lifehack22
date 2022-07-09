@@ -15,10 +15,10 @@ class HelveticaHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: AutoSizeText(
+      child: Text(
         text,
         textAlign: TextAlign.center,
-        style: helveticaTextStyle.copyWith(fontSize: 60.0, fontWeight: FontWeight.bold),
+        style: helveticaTextStyle.copyWith(fontSize: 51.0, fontWeight: FontWeight.bold),
         maxLines: 2,
       ),
     );

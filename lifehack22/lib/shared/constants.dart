@@ -33,8 +33,6 @@ const BoxDecoration largeRadiusRoundedBox1 = BoxDecoration(
   color: darkestPink,
 );
 
-const SizedBox gapBox = SizedBox(height: 15.0);
-
 const InputDecoration formFieldDeco = InputDecoration(
   fillColor: Colors.white,
   filled: true,
@@ -71,8 +69,9 @@ backButton(context) => Container(
       maxLines: 1
     ),
   ),
+);
 
-const BoxDecoration smallRadiusRoundedBox = BoxDecoration(
+BoxDecoration smallRadiusRoundedBox = const BoxDecoration(
   borderRadius: BorderRadius.all(Radius.circular(10)),
   color: darkestPinkOpacity10,
 );
