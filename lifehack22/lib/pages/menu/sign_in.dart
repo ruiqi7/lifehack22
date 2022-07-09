@@ -106,6 +106,7 @@ class _SignInState extends State<SignIn> {
                             setState(() => _error = 'Invalid email and / or password.');
                           } else {
                             setState(() => _loading = true);
+                            if (!mounted) return;
                             Navigator.pop(context);
                           }
                         }

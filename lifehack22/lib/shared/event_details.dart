@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:lifehack22/services/event_database.dart';
 import '../models/event.dart';
 import '../services/user_database.dart';
@@ -8,7 +9,17 @@ import 'constants.dart';
 class EventDetails extends StatefulWidget {
   final Event event;
   final String uid;
-  const EventDetails({Key? key, required this.event, required this.uid}) : super(key: key);
+  final String contactName;
+  final String contactPhone;
+  final String contactEmail;
+  const EventDetails({
+    Key? key,
+    required this.event,
+    required this.uid,
+    required this.contactName,
+    required this.contactPhone,
+    required this.contactEmail
+  }) : super(key: key);
 
   @override
   State<EventDetails> createState() => _EventDetailsState();
@@ -78,7 +89,11 @@ class _EventDetailsState extends State<EventDetails> {
                         color: Colors.black,
                       ),
                       verticalGapBox,
-                      AutoSizeText("widget.event.dateTime", style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                      AutoSizeText(
+                          '${DateFormat.yMMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
+                          style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black),
+                          maxLines: 1
+                      ),
                     ],
                   ),
                   const SizedBox(height: 5.0),
@@ -148,7 +163,7 @@ class _EventDetailsState extends State<EventDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.event.contactName, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              AutoSizeText(widget.contactName, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
                             ],
                           ),
@@ -160,7 +175,7 @@ class _EventDetailsState extends State<EventDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.event.contactNumber, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              AutoSizeText(widget.contactPhone, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
                             ],
                           ),
@@ -172,7 +187,7 @@ class _EventDetailsState extends State<EventDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.event.contactEmail, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              AutoSizeText(widget.contactEmail, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
                             ],
                           ),
@@ -193,6 +208,7 @@ class _EventDetailsState extends State<EventDetails> {
                             Navigator.pop(context);
                             alertDialogue50(context, 'Successfully registered!');
                           } else {
+                            if (!mounted) return;
                             alertDialogueProfile(context);
                           }
                         },

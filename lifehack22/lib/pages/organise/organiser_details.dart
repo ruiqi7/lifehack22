@@ -1,12 +1,28 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:lifehack22/models/event.dart';
+import 'package:lifehack22/services/user_database.dart';
 import 'package:lifehack22/shared/constants.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:csv/csv.dart';
+import 'package:external_path/external_path.dart';
+import 'dart:io';
 
 class OrganiserDetails extends StatefulWidget {
   final Event event;
   final String uid;
-  const OrganiserDetails({Key? key, required this.event, required this.uid}) : super(key: key);
+  final String contactName;
+  final String contactPhone;
+  final String contactEmail;
+  const OrganiserDetails({
+    Key? key,
+    required this.event,
+    required this.uid,
+    required this.contactName,
+    required this.contactPhone,
+    required this.contactEmail
+  }) : super(key: key);
 
   @override
   State<OrganiserDetails> createState() => _OrganiserDetailsState();
@@ -19,6 +35,39 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
     dynamic j = widget.event.participantsList.length;
     return i - j + 1;
   }
+
+  void _generateCsvFile() async {
+
+    List<dynamic> data = await DatabaseService(uid: widget.uid).listOfMaps(widget.event.participantsList);
+
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.storage,
+    ].request();
+
+    List<List<dynamic>> rows = [];
+
+    for (int i = 0; i < data.length; i++) {
+      List<dynamic> row = [];
+      row.add(data[i]["name"]);
+      row.add(data[i]["phone"]);
+      row.add(data[i]["email"]);
+      rows.add(row);
+    }
+
+    String csv = const ListToCsvConverter().convert(rows);
+
+    String path;
+
+    path = await ExternalPath.getExternalStoragePublicDirectory(
+        ExternalPath.DIRECTORY_DOWNLOADS);
+
+    String file = path;
+
+    File f = File("$file/filename.csv");
+
+    f.writeAsString(csv);
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +114,11 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget> [
-                  AutoSizeText(widget.event.title, style: helveticaTextStyle.copyWith(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black), maxLines: 1),
+                  AutoSizeText(
+                      '${DateFormat.yMMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
+                      style: helveticaTextStyle.copyWith(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
+                      maxLines: 1
+                  ),
                   horizontalGapBox,
                   // Date & Time
                   Row(
@@ -145,7 +198,7 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.event.contactName, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              AutoSizeText(widget.contactName, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
                             ],
                           ),
@@ -157,7 +210,7 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.event.contactNumber, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              AutoSizeText(widget.contactPhone, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
                             ],
                           ),
@@ -169,7 +222,7 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.event.contactEmail, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              AutoSizeText(widget.contactEmail, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
                             ],
                           ),
@@ -182,9 +235,7 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                       decoration: largeRadiusRoundedBox1,
                       padding: const EdgeInsets.all(5.0),
                       child: TextButton(
-                        onPressed: () {
-
-                        },
+                        onPressed: _generateCsvFile,
                         child: Text(
                           'View Participants',
                           style: helveticaTextStyle.copyWith(fontSize: 24.0, fontWeight: FontWeight.bold),
