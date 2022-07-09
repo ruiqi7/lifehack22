@@ -31,7 +31,7 @@ class _EventListState extends State<EventList> {
         shrinkWrap: true,
         itemCount: list.length <= 20 ? list.length : 20,
         itemBuilder: (context, index) {
-          return EventCard(event: list[index]);
+          return EventCard(event: list[index], uid: widget.username);
         }
     );
   }
