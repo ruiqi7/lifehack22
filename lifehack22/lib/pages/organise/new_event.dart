@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -31,11 +32,12 @@ class _NewEventState extends State<NewEvent> {
   String _thumbnail = 'https://ankawahc.org/wp-content/uploads/2021/06/Asset-1@2x-50.jpg';
   XFile? _currImage;
 
+  // if date time chosen is earlier than the current time
+  String _error = '';
+
   final List<String> _regions = ['North', 'South', 'East', 'West', 'Central'];
   final List<String> _types = ['Cooking', 'Packing', 'Delivery', 'Interaction', 'Logistics', 'Others'];
   final List<String> _communityGroups = ['Elderly', 'Youths', 'Disabled', 'Migrants', 'Low-Income', 'Others'];
-
-  bool _hideFormFields = false;
 
   void _showDialog(Widget child) {
     showCupertinoModalPopup<void>(
@@ -115,7 +117,7 @@ class _NewEventState extends State<NewEvent> {
                   style: formInputTextStyle.copyWith(fontSize: 18.0),
                   validator: (value) =>
                   value!.trim().isEmpty
-                      ? 'Enter a title for your event'
+                      ? 'Enter a title for your event.'
                       : null,
                   onChanged: (value) {
                     setState(() => _title = value.trim());
@@ -127,14 +129,16 @@ class _NewEventState extends State<NewEvent> {
                   style: formInputTextStyle.copyWith(fontSize: 18.0),
                   validator: (value) =>
                   value!.trim().isEmpty
-                      ? 'Enter the maximum number of volunteers you need'
+                      ? 'Enter the maximum number of volunteers you need.'
                       : int.tryParse(value) == null
-                      ? 'Enter an integer'
+                      ? 'Enter an integer.'
                       : int.parse(value) <= 0
-                      ? 'Enter a positive integer'
+                      ? 'Enter a positive integer.'
                       : null,
                   onChanged: (value) {
-                    setState(() => _quota = int.parse(value));
+                    if (int.tryParse(value) != null) {
+                      setState(() => _quota = int.parse(value));
+                    }
                   },
                 ),
                 horizontalGapBox,
@@ -197,9 +201,6 @@ class _NewEventState extends State<NewEvent> {
                       return null;
                     }
                   },
-                  onMenuStateChange: (isOpen) {
-                    setState(() => _hideFormFields = isOpen);
-                  },
                 ),
                 horizontalGapBox,
                 DropdownButtonFormField2( // type
@@ -243,14 +244,11 @@ class _NewEventState extends State<NewEvent> {
                       return null;
                     }
                   },
-                  onMenuStateChange: (isOpen) {
-                    setState(() => _hideFormFields = isOpen);
-                  },
                 ),
                 horizontalGapBox,
                 DropdownButtonFormField2( // cause
                   decoration: formFieldDeco.copyWith(
-                    hintText: 'Cause',
+                    hintText: 'Community',
                     hintStyle: helveticaTextStyle.copyWith(fontSize: 18.0, color: darkestPink),
                   ),
                   icon: const Icon(Icons.keyboard_arrow_down_sharp),
@@ -284,13 +282,10 @@ class _NewEventState extends State<NewEvent> {
                   value: _community,
                   validator: (value) {
                     if (value == null) {
-                      return 'Please select a cause your event supports.';
+                      return 'Please select a community your event supports.';
                     } else {
                       return null;
                     }
-                  },
-                  onMenuStateChange: (isOpen) {
-                    setState(() => _hideFormFields = isOpen);
                   },
                 ),
                 horizontalGapBox,
@@ -300,7 +295,7 @@ class _NewEventState extends State<NewEvent> {
                   style: formInputTextStyle.copyWith(fontSize: 18.0),
                   validator: (value) =>
                   value!.trim().isEmpty
-                      ? 'Please provide more details about your event'
+                      ? 'Please provide more details about your event.'
                       : null,
                   onChanged: (value) {
                     setState(() => _description = value.trim());
@@ -346,6 +341,14 @@ class _NewEventState extends State<NewEvent> {
                 ),
                 horizontalGapBox,
                 horizontalGapBox,
+                Text(
+                  _error,
+                  style: const TextStyle(
+                    color: Colors.red,
+                    fontSize: 12.0,
+                  ),
+                  maxLines: 1,
+                ),
                 horizontalGapBox,
                 Container(
                   width: 190.0,
@@ -359,12 +362,21 @@ class _NewEventState extends State<NewEvent> {
                     ),
                     child: const AutoSizeText('Create Event', maxLines: 1),
                     onPressed: () async {
-                      if (_formKey.currentState!.validate() && _dateTime.compareTo(DateTime.now()) > 0) {
-                        String newURL = await Storage().uploadFile(_currImage!, uid, true);
+                      if (_dateTime.compareTo(DateTime.now()) <= 0) {
+                        setState(() => _error = 'Please choose another date and time.');
+                      } else if (_formKey.currentState!.validate()) {
+                        String url;
+                        if (_currImage == null) {
+                          url = _thumbnail;
+                        } else {
+                          url = await Storage().uploadFile(_currImage!, uid, true);
+                        }
+
                         EventDatabase().createNewEvent(
-                            newURL, _title, _dateTime.toString(), _region!,
+                            url, _title, Timestamp.fromDate(_dateTime), _region!,
                             _quota, _type!, _community!, _description, uid
                         );
+
                         if (!mounted) return;
                         Navigator.pop(context);
                       }

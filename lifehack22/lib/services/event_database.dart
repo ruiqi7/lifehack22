@@ -26,9 +26,6 @@ class EventDatabase {
         activityType: doc.data().toString().contains('activityType') ? doc.get('activityType'): '',
         community: doc.data().toString().contains('community') ? doc.get('community'): '',
         details: doc.data().toString().contains('details') ? doc.get('details'): '',
-        contactName: doc.data().toString().contains('contactName') ? doc.get('contactName'): '',
-        contactNumber: doc.data().toString().contains('contactNumber') ? doc.get('contactNumber'): '',
-        contactEmail: doc.data().toString().contains('contactEmail') ? doc.get('contactEmail'): '',
         organiserUid: doc.data().toString().contains('organiserUid') ? doc.get('organiserUid'): '',
         participantsList: doc.data().toString().contains('participantsList') ? doc.get('participantsList'): [],
       );
@@ -54,15 +51,12 @@ class EventDatabase {
       activityType: data?['activityType'],
       community: data?['community'],
       details: data?['details'],
-      contactName: data?['contactName'],
-      contactNumber: data?['contactNumber'],
-      contactEmail: data?['contactEmail'],
       organiserUid: data?['organiserUid'],
       participantsList: data?['participantsList'],
     );
   }
 
-  Future createNewEvent(String imageUrl, String title, String dateTime, String region, int quota,
+  Future createNewEvent(String imageUrl, String title, Timestamp dateTime, String region, int quota,
       String activityType, String community, String details, String organiserUid) async {
       
     return await eventDatabaseCollection.add({
@@ -187,5 +181,4 @@ class EventDatabase {
       'participantsList': FieldValue.arrayRemove(list),
     });
   }
-
 }

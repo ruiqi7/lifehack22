@@ -107,6 +107,7 @@ class _SignUpState extends State<SignUp> {
                             setState(() => _error = message);
                           } else {
                             setState(() => _loading = true);
+                            if (!mounted) return;
                             Navigator.pop(context);
                           }
                         }

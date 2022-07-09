@@ -9,9 +9,6 @@ class Event {
   final String activityType;
   final String community;
   final String details;
-  final String contactName;
-  final String contactNumber;
-  final String contactEmail;
   final String organiserUid;
   final dynamic participantsList;
 
@@ -25,9 +22,6 @@ class Event {
     required this.activityType,
     required this.community,
     required this.details,
-    required this.contactName,
-    required this.contactNumber,
-    required this.contactEmail,
     required this.organiserUid,
     required this.participantsList,
   });

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:lifehack22/shared/constants.dart';
 import 'package:lifehack22/pages/menu/sign_in.dart';
 import 'package:lifehack22/pages/menu/sign_up.dart';
-import 'package:lifehack22/shared/custom_text_widgets.dart';
 import 'package:page_transition/page_transition.dart';
 
 class MainMenu extends StatelessWidget {

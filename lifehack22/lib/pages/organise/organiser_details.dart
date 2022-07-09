@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:lifehack22/models/event.dart';
 import 'package:lifehack22/services/user_database.dart';
 import 'package:lifehack22/shared/constants.dart';
@@ -11,7 +12,17 @@ import 'dart:io';
 class OrganiserDetails extends StatefulWidget {
   final Event event;
   final String uid;
-  const OrganiserDetails({Key? key, required this.event, required this.uid}) : super(key: key);
+  final String contactName;
+  final String contactPhone;
+  final String contactEmail;
+  const OrganiserDetails({
+    Key? key,
+    required this.event,
+    required this.uid,
+    required this.contactName,
+    required this.contactPhone,
+    required this.contactEmail
+  }) : super(key: key);
 
   @override
   State<OrganiserDetails> createState() => _OrganiserDetailsState();
@@ -103,7 +114,11 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget> [
-                  AutoSizeText(widget.event.title, style: helveticaTextStyle.copyWith(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black), maxLines: 1),
+                  AutoSizeText(
+                      '${DateFormat.yMMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
+                      style: helveticaTextStyle.copyWith(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
+                      maxLines: 1
+                  ),
                   horizontalGapBox,
                   // Date & Time
                   Row(
@@ -183,7 +198,7 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.event.contactName, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              AutoSizeText(widget.contactName, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
                             ],
                           ),
@@ -195,7 +210,7 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.event.contactNumber, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              AutoSizeText(widget.contactPhone, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
                             ],
                           ),
@@ -207,7 +222,7 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.event.contactEmail, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              AutoSizeText(widget.contactEmail, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
                             ],
                           ),

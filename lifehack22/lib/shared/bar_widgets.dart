@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lifehack22/pages/organise/organise.dart';
 import 'package:lifehack22/pages/volunteering/volunteer.dart';
+import 'package:lifehack22/services/user_database.dart';
 import 'package:lifehack22/shared/constants.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../pages/home/Home.dart';
 import '../pages/profile/profile.dart';
 
-navigationBar(context, position) => SafeArea(
+navigationBar(context, position, uid) => SafeArea(
   key: const Key('NavigationBar'),
   child: Row(
       children: <Widget> [
@@ -160,16 +161,27 @@ navigationBar(context, position) => SafeArea(
                           )
                         ],
                       ),
-                      onPressed: () {
+                      onPressed: () async {
+                        DatabaseService dbs = DatabaseService(uid: uid);
+                        String name = await dbs.getName();
+                        String email = await dbs.getEmail();
+                        String phone = await dbs.getPhone();
+
                         if (position > 4) {
                           Navigator.push(
                               context,
-                              PageTransition(child: const Profile(), type: PageTransitionType.leftToRight)
+                              PageTransition(
+                                  child: Profile(name: name, email: email, phone: phone),
+                                  type: PageTransitionType.leftToRight
+                              )
                           );
                         } else if (position < 4) {
                           Navigator.push(
                               context,
-                              PageTransition(child: const Profile(), type: PageTransitionType.rightToLeft)
+                              PageTransition(
+                                  child: Profile(name: name, email: email, phone: phone),
+                                  type: PageTransitionType.rightToLeft
+                              )
                           );
                         }
                       },

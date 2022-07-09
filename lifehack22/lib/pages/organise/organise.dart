@@ -96,7 +96,7 @@ class _OrganiseState extends State<Organise> {
         ),
         bottomNavigationBar: Container(
           color: navBarGrey,
-          child: navigationBar(context, _position),
+          child: navigationBar(context, _position, uid),
         )
     );
   }
