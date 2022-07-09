@@ -4,11 +4,37 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd80e3ec-51a8-4dd1-9436-e882b5600b84" name="Default Changelist" comment="" />
+    <list default="true" id="fd80e3ec-51a8-4dd1-9436-e882b5600b84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/models/app_user.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/models/custom_user.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/pages/authentication_wrapper.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/pages/loading.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/pages/menu/main_menu.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/pages/menu/reset_password.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/pages/menu/sign_in.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/pages/menu/sign_up.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/pages/menu/verify_email.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/services/authentication.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifehack22/lib/shared/custom_text_widgets.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/services/user_database.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/services/user_database.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/shared/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/shared/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,14 +51,28 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flutter.main.dart (1)">
+    <configuration name="main.dart (1)" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lifehack22/lib/main.dart" />
+      <method v="2" />
+    </configuration>
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
       <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flutter.main.dart (1)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -44,5 +84,16 @@
       <updated>1657339207989</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
