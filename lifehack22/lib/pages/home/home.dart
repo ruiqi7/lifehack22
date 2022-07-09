@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lifehack22/services/authentication.dart';
 import 'package:lifehack22/services/event_database.dart';
@@ -20,7 +21,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   final int _position = 1;
-  String uid = "";
+  final String uid = FirebaseAuth.instance.currentUser!.uid;
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +78,7 @@ class _HomeState extends State<Home> {
           ),
           horizontalGapBox,
           horizontalGapBox,
-          Expanded(child: AutoSizeText('Your Upcoming Events', style: helveticaTextStyle.copyWith(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black))),
-          horizontalGapBox,
+          AutoSizeText('Your Upcoming Events', style: helveticaTextStyle.copyWith(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.black)),
           horizontalGapBox,
           Expanded(
             child: Column(

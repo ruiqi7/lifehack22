@@ -81,3 +81,123 @@ BoxDecoration largeRadiusRoundedBox = BoxDecoration(
   border: Border.all(color: darkestPink, width: 1.0),
   color: lightPink,
 );
+
+alertDialogue50(context, message) => showDialog<String>(
+    context: context,
+    builder: (context) {
+      var width = MediaQuery.of(context).size.width;
+      return AlertDialog(
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+        contentPadding: EdgeInsets.zero,
+        insetPadding: const EdgeInsets.symmetric(horizontal: 60),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget> [
+            SizedBox(
+              height: 50,
+              child: Center(
+                child: Container(
+                  padding: const EdgeInsets.only(top: 25.0),
+                  child: Text(
+                    message,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                    ),
+                    softWrap: true,
+                  ),
+                ),
+              ),
+            ),
+            horizontalGapBox,
+            InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 50,
+                width: width,
+                child: const Text(
+                  'OK',
+                  style: TextStyle(
+                    color: Colors.lightBlue,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    });
+
+alertDialogueProfile(context) => showDialog<String>(
+    context: context,
+    builder: (context) {
+      var width = MediaQuery.of(context).size.width;
+      return AlertDialog(
+        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+        contentPadding: EdgeInsets.zero,
+        insetPadding: const EdgeInsets.symmetric(horizontal: 60),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget> [
+            SizedBox(
+              height: 100,
+              child: Center(
+                child: Container(
+                  padding: const EdgeInsets.only(top: 25.0),
+                  child: Column(
+                    children: const [
+                      Text(
+                        'Head to Profile to fill in',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                        softWrap: true,
+                      ),
+                      SizedBox(height: 5.0),
+                      Text(
+                        'your details before',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                        softWrap: true,
+                      ),
+                      SizedBox(height: 5.0),
+                      Text(
+                        'registering!',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black,
+                        ),
+                        softWrap: true,
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            horizontalGapBox,
+            InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                alignment: Alignment.center,
+                height: 50,
+                width: width,
+                child: const Text(
+                  'OK',
+                  style: TextStyle(
+                    color: Colors.lightBlue,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    });
