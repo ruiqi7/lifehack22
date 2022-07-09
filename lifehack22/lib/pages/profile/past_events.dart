@@ -31,7 +31,6 @@ class _PastEventsState extends State<PastEvents> {
             color: darkestPink,
             child: SafeArea(
               child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 15.0),
                 color: darkestPink,
                 height: 75,
                 child: Row(

@@ -19,20 +19,9 @@ class DatabaseService {
     });
   }
 
-  Future updateName(String name) async {
+  Future updateProfile(String name, String phone) async {
     return await userDatabaseCollection.doc(uid).update({
       'name': name,
-    });
-  }
-
-  Future updateEmail(String email) async {
-    return await userDatabaseCollection.doc(uid).update({
-      'email': email,
-    });
-  }
-
-  Future updatePhone(String phone) async {
-    return await userDatabaseCollection.doc(uid).update({
       'phone': phone,
     });
   }
@@ -83,4 +72,30 @@ class DatabaseService {
     return user.name.isNotEmpty && user.email.isNotEmpty && user.phone.isNotEmpty;
   }
 
+  Future<String> getName() async {
+    DocumentSnapshot? snapshot;
+    DocumentReference doc = userDatabaseCollection.doc(uid);
+    await doc.get().then((value) => snapshot = value);
+
+    AppUser user = _userDataFromSnapshot(snapshot!);
+    return user.name;
+  }
+
+  Future<String> getPhone() async {
+    DocumentSnapshot? snapshot;
+    DocumentReference doc = userDatabaseCollection.doc(uid);
+    await doc.get().then((value) => snapshot = value);
+
+    AppUser user = _userDataFromSnapshot(snapshot!);
+    return user.phone;
+  }
+
+  Future<String> getEmail() async {
+    DocumentSnapshot? snapshot;
+    DocumentReference doc = userDatabaseCollection.doc(uid);
+    await doc.get().then((value) => snapshot = value);
+
+    AppUser user = _userDataFromSnapshot(snapshot!);
+    return user.email;
+  }
 }

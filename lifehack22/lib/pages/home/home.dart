@@ -97,7 +97,7 @@ class _HomeState extends State<Home> {
       ),
       bottomNavigationBar: Container(
         color: navBarGrey,
-        child: navigationBar(context, _position),
+        child: navigationBar(context, _position, uid),
       )
     );
   }

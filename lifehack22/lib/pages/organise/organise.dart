@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lifehack22/pages/organise/new_event.dart';
 import 'package:lifehack22/shared/bar_widgets.dart';
@@ -14,6 +15,7 @@ class Organise extends StatefulWidget {
 class _OrganiseState extends State<Organise> {
 
   final int _position = 3;
+  final String uid = FirebaseAuth.instance.currentUser!.uid;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class _OrganiseState extends State<Organise> {
         ),
         bottomNavigationBar: Container(
           color: navBarGrey,
-          child: navigationBar(context, _position),
+          child: navigationBar(context, _position, uid),
         )
     );
   }

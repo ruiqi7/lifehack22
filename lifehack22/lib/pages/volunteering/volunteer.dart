@@ -66,7 +66,7 @@ class _VolunteerState extends State<Volunteer> {
         ),
         bottomNavigationBar: Container(
           color: navBarGrey,
-          child: navigationBar(context, _position),
+          child: navigationBar(context, _position, uid),
         )
     );
   }
