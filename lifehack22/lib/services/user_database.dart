@@ -83,4 +83,20 @@ class DatabaseService {
     return user.name.isNotEmpty && user.email.isNotEmpty && user.phone.isNotEmpty;
   }
 
+  Future listOfMaps(List<String> list) async {
+    List<Map<String, String>> newList = [];
+
+    for (String id in list) {
+      DocumentSnapshot? snapshot;
+      DocumentReference doc = userDatabaseCollection.doc(id);
+      await doc.get().then((value) => snapshot = value);
+
+      AppUser user = _userDataFromSnapshot(snapshot!);
+      Map<String, String> map = {'name': user.name, 'email': user.email, 'phone': user.phone.toString()};
+      newList.add(map);
+    }
+
+    return newList;
+  }
+
 }

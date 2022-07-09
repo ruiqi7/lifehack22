@@ -90,12 +90,68 @@ class EventDatabase {
   }
 
   //get eventDatabase stream of upcoming events for volunteering page
-  Stream<List<Event>> volunteeringEventsStream() {
-    return eventDatabaseCollection
-        .where('dateTime', isGreaterThanOrEqualTo: _now)
-        .orderBy('dateTime')
-        .snapshots()
-        .map(eventListFromSnapshot);
+  Stream<List<Event>> volunteeringEventsStream(String? region, String? type, String? community) {
+    if (region == null && type == null && community == null) {
+      return eventDatabaseCollection
+          .where('dateTime', isGreaterThanOrEqualTo: _now)
+          .orderBy('dateTime')
+          .snapshots()
+          .map(eventListFromSnapshot);
+    } else if (region != null && type == null && community == null) {
+      return eventDatabaseCollection
+          .where('dateTime', isGreaterThanOrEqualTo: _now)
+          .where('region', isEqualTo: region)
+          .orderBy('dateTime')
+          .snapshots()
+          .map(eventListFromSnapshot);
+    } else if (region != null && type != null && community == null) {
+      return eventDatabaseCollection
+          .where('dateTime', isGreaterThanOrEqualTo: _now)
+          .where('region', isEqualTo: region)
+          .where('activityType', isEqualTo: type)
+          .orderBy('dateTime')
+          .snapshots()
+          .map(eventListFromSnapshot);
+    } else if (region != null && type != null && community != null) {
+      return eventDatabaseCollection
+          .where('dateTime', isGreaterThanOrEqualTo: _now)
+          .where('region', isEqualTo: region)
+          .where('activityType', isEqualTo: type)
+          .where('community', isEqualTo: community)
+          .orderBy('dateTime')
+          .snapshots()
+          .map(eventListFromSnapshot);
+    } else if (region == null && type != null && community == null) {
+      return eventDatabaseCollection
+          .where('dateTime', isGreaterThanOrEqualTo: _now)
+          .where('activityType', isEqualTo: type)
+          .orderBy('dateTime')
+          .snapshots()
+          .map(eventListFromSnapshot);
+    } else if (region == null && type != null && community != null) {
+      return eventDatabaseCollection
+          .where('dateTime', isGreaterThanOrEqualTo: _now)
+          .where('activityType', isEqualTo: type)
+          .where('community', isEqualTo: community)
+          .orderBy('dateTime')
+          .snapshots()
+          .map(eventListFromSnapshot);
+    } else if (region == null && type == null && community != null) {
+      return eventDatabaseCollection
+          .where('dateTime', isGreaterThanOrEqualTo: _now)
+          .where('community', isEqualTo: community)
+          .orderBy('dateTime')
+          .snapshots()
+          .map(eventListFromSnapshot);
+    } else {
+      return eventDatabaseCollection
+          .where('dateTime', isGreaterThanOrEqualTo: _now)
+          .where('region', isEqualTo: region)
+          .where('community', isEqualTo: community)
+          .orderBy('dateTime')
+          .snapshots()
+          .map(eventListFromSnapshot);
+    }
   }
 
   //get eventDatabase stream of upcoming events for organising page
