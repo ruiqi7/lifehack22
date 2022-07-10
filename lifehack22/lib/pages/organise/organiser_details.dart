@@ -32,16 +32,17 @@ class OrganiserDetails extends StatefulWidget {
 
 class _OrganiserDetailsState extends State<OrganiserDetails> {
 
-  int numOfPeopleNeeded() {
-    dynamic i = widget.event.quota;
-    dynamic j = widget.event.participantsList.length;
-    return i - j + 1;
+  String currStatus() {
+    int i = widget.event.quota;
+    int j = widget.event.participantsList.length;
+    int subtraction = j - 1;
+    return "$subtraction/$i";
   }
 
   @override
   Widget build(BuildContext context) {
 
-    final int nPeopleNeeded = numOfPeopleNeeded();
+    final String status = currStatus();
 
     return Scaffold(
       appBar: PreferredSize(
@@ -127,7 +128,7 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                         color: Colors.black,
                       ),
                       verticalGapBox,
-                      AutoSizeText('$nPeopleNeeded more!', style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                      AutoSizeText(status, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                     ],
                   ),
                   horizontalGapBox,
