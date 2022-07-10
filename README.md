@@ -21,9 +21,11 @@ For those who are seeking volunteering opportunities and ways to contribute back
 
 Hence, our creative hack allows for easier, more accessible and larger outreach for those in the volunteering scene in order to better help those in need. 
 
+## Video Demo
+https://www.youtube.com/watch?v=gU9wwAafNps
 
 ## App Demo (for Andriod users only) 
-You can download and install the APK release directly from this link:
+You can download and install the APK release directly from the link below to test it out!
 
 https://drive.google.com/file/d/1PaqA13zzlJw8US0tj-shlWfGw-fa_0-9/view?usp=sharing
 
