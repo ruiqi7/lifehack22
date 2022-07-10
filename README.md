@@ -1,5 +1,5 @@
 # Stand Together [Sphinx]
-Our hack for LifeHack 2022
+Our hack for LifeHack 2022.
 
 ## Theme & Problem Statement
 
