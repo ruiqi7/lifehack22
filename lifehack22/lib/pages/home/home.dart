@@ -49,6 +49,8 @@ class _HomeState extends State<Home> {
                           ),
                           onPressed: () async {
                             await Authentication().customSignOut();
+                            if (!mounted) return;
+                            Navigator.pushNamed(context, '/');
                           },
                         ),
                       ],

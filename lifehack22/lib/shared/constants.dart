@@ -143,7 +143,7 @@ alertDialogueProfile(context) => showDialog<String>(
           mainAxisSize: MainAxisSize.min,
           children: <Widget> [
             SizedBox(
-              height: 100,
+              height: 80,
               child: Center(
                 child: Container(
                   padding: const EdgeInsets.only(top: 25.0),
@@ -159,22 +159,13 @@ alertDialogueProfile(context) => showDialog<String>(
                       ),
                       SizedBox(height: 5.0),
                       Text(
-                        'your details before',
+                        'your details first!',
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.black,
                         ),
                         softWrap: true,
                       ),
-                      SizedBox(height: 5.0),
-                      Text(
-                        'registering!',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black,
-                        ),
-                        softWrap: true,
-                      )
                     ],
                   ),
                 ),

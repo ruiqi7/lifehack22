@@ -50,7 +50,11 @@ class _OrganiserCardState extends State<OrganiserCard> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget> [
-                        AutoSizeText(widget.event.title, style: helveticaTextStyle.copyWith(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black), maxLines: 1),
+                        AutoSizeText(
+                            widget.event.title,
+                            style: helveticaTextStyle.copyWith(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
+                            maxLines: 1
+                        ),
                         horizontalGapBox,
                         // Date & Time
                         Row(
@@ -61,9 +65,9 @@ class _OrganiserCardState extends State<OrganiserCard> {
                             ),
                             verticalGapBox,
                             AutoSizeText(
-                                '${DateFormat.yMMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
+                                '${DateFormat.yMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
                                 style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black),
-                                maxLines: 1
+                                maxLines: 1,
                             ),
                           ],
                         ),

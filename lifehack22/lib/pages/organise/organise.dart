@@ -57,6 +57,7 @@ class _OrganiseState extends State<Organise> {
                                   PageTransition(child: const NewEvent(), type: PageTransitionType.bottomToTop),
                                 );
                               } else {
+                                if (!mounted) return;
                                 alertDialogueProfile(context);
                               }
 

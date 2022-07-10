@@ -89,10 +89,12 @@ class _EventDetailsState extends State<EventDetails> {
                         color: Colors.black,
                       ),
                       verticalGapBox,
-                      AutoSizeText(
-                          '${DateFormat.yMMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
-                          style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black),
-                          maxLines: 1
+                      Expanded(
+                        child: AutoSizeText(
+                            '${DateFormat.yMMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
+                            style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black),
+                            maxLines: 1
+                        ),
                       ),
                     ],
                   ),
@@ -163,7 +165,13 @@ class _EventDetailsState extends State<EventDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.contactName, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              Expanded(
+                                child: AutoSizeText(
+                                    widget.contactName,
+                                    style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black),
+                                    maxLines: 1
+                                ),
+                              ),
                               const SizedBox(height: 5.0),
                             ],
                           ),
@@ -175,7 +183,7 @@ class _EventDetailsState extends State<EventDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.contactPhone, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              Expanded(child: AutoSizeText(widget.contactPhone, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1)),
                               const SizedBox(height: 5.0),
                             ],
                           ),
@@ -187,7 +195,13 @@ class _EventDetailsState extends State<EventDetails> {
                                 color: Colors.black,
                               ),
                               verticalGapBox,
-                              AutoSizeText(widget.contactEmail, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                              Expanded(
+                                child: AutoSizeText(
+                                    widget.contactEmail,
+                                    style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black),
+                                    maxLines: 1
+                                ),
+                              ),
                               const SizedBox(height: 5.0),
                             ],
                           ),
