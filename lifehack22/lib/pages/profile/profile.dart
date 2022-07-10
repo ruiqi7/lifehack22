@@ -153,7 +153,7 @@ class _ProfileState extends State<Profile> {
                     primary: Colors.white,
                     textStyle: helveticaTextStyle.copyWith(fontSize: 27.5, fontWeight: FontWeight.bold),
                   ),
-                  child: const Text('Submit'),
+                  child: const Text('Save'),
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       DatabaseService(uid: uid).updateProfile(_name, _phone);

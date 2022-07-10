@@ -59,7 +59,7 @@ class _EventCardState extends State<EventCard> {
                             ),
                             verticalGapBox,
                             AutoSizeText(
-                                '${DateFormat.yMMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
+                                '${DateFormat.yMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
                                 style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black),
                                 maxLines: 1
                             ),

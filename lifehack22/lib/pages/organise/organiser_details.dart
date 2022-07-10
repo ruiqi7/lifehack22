@@ -84,9 +84,9 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget> [
                   AutoSizeText(
-                      '${DateFormat.yMMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
+                      widget.event.title,
                       style: helveticaTextStyle.copyWith(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
-                      maxLines: 1
+                      //maxLines: 1
                   ),
                   horizontalGapBox,
                   // Date & Time
@@ -97,7 +97,13 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                         color: Colors.black,
                       ),
                       verticalGapBox,
-                      AutoSizeText("widget.event.dateTime", style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
+                      Expanded(
+                        child: AutoSizeText(
+                            '${DateFormat.yMMMMd().format(widget.event.dateTime.toDate())} @ ${DateFormat.Hm().format(widget.event.dateTime.toDate())}',
+                            style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black),
+                            maxLines: 1
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 5.0),
@@ -122,7 +128,6 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                       ),
                       verticalGapBox,
                       AutoSizeText('$nPeopleNeeded more!', style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
-
                     ],
                   ),
                   horizontalGapBox,
@@ -152,47 +157,63 @@ class _OrganiserDetailsState extends State<OrganiserDetails> {
                     decoration: smallRadiusRoundedBox,
                     padding: const EdgeInsets.all(15.0),
                     child:
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: <Widget> [
-                          Text(
-                            'Contact',
-                            style: helveticaTextStyle.copyWith(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.0),
-                          ),
-                          horizontalGapBox,
-                          Row(
+                      ListView(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget> [
-                              const Icon(
-                                Icons.person_rounded,
-                                color: Colors.black,
+                              Text(
+                                'Contact',
+                                style: helveticaTextStyle.copyWith(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20.0),
                               ),
-                              verticalGapBox,
-                              AutoSizeText(widget.contactName, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
-                              const SizedBox(height: 5.0),
-                            ],
-                          ),
-                          const SizedBox(height: 5.0),
-                          Row(
-                            children: <Widget> [
-                              const Icon(
-                                Icons.phone,
-                                color: Colors.black,
+                              horizontalGapBox,
+                              Row(
+                                children: <Widget> [
+                                  const Icon(
+                                    Icons.person_rounded,
+                                    color: Colors.black,
+                                  ),
+                                  verticalGapBox,
+                                  Expanded(
+                                    child: AutoSizeText(
+                                        widget.contactName,
+                                        style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black),
+                                        maxLines: 1
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5.0),
+                                ],
                               ),
-                              verticalGapBox,
-                              AutoSizeText(widget.contactPhone, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
-                            ],
-                          ),
-                          const SizedBox(height: 5.0),
-                          Row(
-                            children: <Widget> [
-                              const Icon(
-                                Icons.email_outlined,
-                                color: Colors.black,
+                              Row(
+                                children: <Widget> [
+                                  const Icon(
+                                    Icons.phone,
+                                    color: Colors.black,
+                                  ),
+                                  verticalGapBox,
+                                  Expanded(child: AutoSizeText(widget.contactPhone, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1)),
+                                  const SizedBox(height: 5.0),
+                                ],
                               ),
-                              verticalGapBox,
-                              AutoSizeText(widget.contactEmail, style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black), maxLines: 1),
                               const SizedBox(height: 5.0),
+                              Row(
+                                children: <Widget> [
+                                  const Icon(
+                                    Icons.email_outlined,
+                                    color: Colors.black,
+                                  ),
+                                  verticalGapBox,
+                                  Expanded(
+                                    child: AutoSizeText(
+                                      widget.contactEmail,
+                                      style: helveticaTextStyle.copyWith(fontSize: 20, color: Colors.black),
+                                      maxLines: 1,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5.0),
+                                ],
+                              ),
                             ],
                           ),
                         ],

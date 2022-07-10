@@ -7,7 +7,14 @@
     <list default="true" id="4efa940a-5f7b-4011-97e1-ed19ff76275d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/home/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organise.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organise.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organiser_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organiser_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organiser_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/organise/organiser_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/pages/profile/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/pages/profile/profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/shared/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/shared/constants.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/shared/event_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/shared/event_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifehack22/lib/shared/event_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack22/lib/shared/event_details.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
