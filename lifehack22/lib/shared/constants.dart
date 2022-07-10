@@ -82,6 +82,8 @@ BoxDecoration largeRadiusRoundedBox = BoxDecoration(
   color: lightPink,
 );
 
+const noHeightHorizontalDivider = Divider(color: navBarObjGrey, height: 0.0);
+
 alertDialogue50(context, message) => showDialog<String>(
     context: context,
     builder: (context) {

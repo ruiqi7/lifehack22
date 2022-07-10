@@ -114,4 +114,12 @@ class DatabaseService {
 
     return newList;
   }
+
+  Stream<List<AppUser>> viewParticipantsStream(List<dynamic> list, String uid) {
+    return userDatabaseCollection
+        .where(FieldPath.documentId, whereIn: list)
+        .where(FieldPath.documentId, isNotEqualTo: uid)
+        .snapshots()
+        .map(_userDataListFromSnapshot);
+  }
 }
