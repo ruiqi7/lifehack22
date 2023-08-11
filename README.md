@@ -24,7 +24,7 @@ Hence, our creative hack allows for easier, more accessible and larger outreach 
 ## Video Demo
 https://www.youtube.com/watch?v=gU9wwAafNps
 
-## App Demo (for Andriod users only) 
+## App Demo (for Android users only) 
 You can download and install the APK release directly from the link below to test it out!
 
 https://drive.google.com/file/d/1PaqA13zzlJw8US0tj-shlWfGw-fa_0-9/view?usp=sharing
